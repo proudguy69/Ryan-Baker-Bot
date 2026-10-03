@@ -1,6 +1,7 @@
 from discord.ext.commands import Cog, Bot
 from logging import getLogger
 
+# this module is for moderation and its development will continue on /feature/modeartion branch
 logger = getLogger("[Bot.Moderation]")
 
 
