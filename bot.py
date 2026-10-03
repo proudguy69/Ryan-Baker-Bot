@@ -1,4 +1,4 @@
-from discord.ext.commands import Bot, Context
+from discord.ext.commands import Bot, Context, is_owner
 from discord import Intents
 from dotenv import load_dotenv
 import os
@@ -26,5 +26,13 @@ token: str = os.getenv("TOKEN")
 if token is None:
     raise RuntimeError("Token is not set in .env")
 bot = RyanBaker()
+
+
+@bot.command()
+@is_owner()
+async def sync(ctx):
+    commands = await bot.tree.sync()
+    await ctx.send(f"Synced {len(commands)} commands!")
+
 
 bot.run(token)
