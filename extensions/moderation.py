@@ -1,7 +1,8 @@
-from discord import Embed, Interaction, Member
-from discord.ext.commands import Cog, Bot
-from discord.app_commands import command, default_permissions, describe
 from logging import getLogger
+
+from discord import Embed, Interaction, Member
+from discord.app_commands import command, default_permissions, describe
+from discord.ext.commands import Bot, Cog
 
 # this module is for moderation and its development will continue on /feature/modeartion branch
 logger = getLogger("[Bot.Moderation]")
@@ -13,9 +14,7 @@ class Moderation(Cog):
         super().__init__()
 
     @command(name="warn", description="Use this command to warn a user")
-    @default_permissions(
-        manage_messages=True
-    )  # require manage_messages permission to run this command
+    @default_permissions(manage_messages=True)
     @describe(user="The member you want to warn", reason="The reason for the warn")
     async def warn(self, interaction: Interaction, user: Member, reason: str):
         infraction_embed = Embed(

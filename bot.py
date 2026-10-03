@@ -1,8 +1,9 @@
-from discord.ext.commands import Bot, Context, is_owner
-from discord import Intents
-from dotenv import load_dotenv
-import os
 import logging
+import os
+
+from discord import Intents
+from discord.ext.commands import Bot, Context, is_owner
+from dotenv import load_dotenv
 
 # any added extension gets its name here
 extensions = ["moderation"]
@@ -30,7 +31,7 @@ bot = RyanBaker()
 
 @bot.command()
 @is_owner()
-async def sync(ctx):
+async def sync(ctx: Context):
     commands = await bot.tree.sync()
     await ctx.send(f"Synced {len(commands)} commands!")
 
