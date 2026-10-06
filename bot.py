@@ -5,6 +5,8 @@ from discord import Intents
 from discord.ext.commands import Bot, Context, is_owner
 from dotenv import load_dotenv
 
+from database import User, db
+
 # any added extension gets its name here
 extensions = ["moderation"]
 logger = logging.getLogger("[Bot]")
@@ -16,6 +18,10 @@ class RyanBaker(Bot):
 
     async def setup_hook(self) -> None:
         logger.info("Running setup hook")
+        async with db:
+            logger.info("setting up database")
+            await db.acreate_tables([User])
+            pass
         for extension in extensions:
             await self.load_extension(f"extensions.{extension}")
         logger.info("Setup hook finished")
