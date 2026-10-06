@@ -1,8 +1,15 @@
 # this file will contain sqlite peewee classes for things like moderation and levels
 # pyright: reportOptionalMemberAccess=false, reportOptionalIterable=false, reportAssignmentType=false
 
+from datetime import datetime
+
 from peewee import IntegerField
-from playhouse.pwasyncio import AsyncSqliteDatabase
+from playhouse.pwasyncio import (
+    AsyncSqliteDatabase,
+    DateTimeField,
+    ForeignKeyField,
+    TextField,
+)
 
 db = AsyncSqliteDatabase("database.db", pragmas={"journal_mode": "wal"})
 
@@ -14,6 +21,15 @@ class User(db.Model):
     messages = IntegerField(default=0)  # total number of messages sent
     xp = IntegerField(default=0)
     level = IntegerField(default=1)
+
+
+class Infraction(db.Model):
+    id = IntegerField(primary_key=True)
+    user = ForeignKeyField(User, lazy_load=False, backref="infractions")
+    moderator_id = IntegerField()
+    type = TextField(default="Warn")
+    reason = TextField(default="None Provided")
+    date = DateTimeField(default=datetime.now)
 
 
 async def main():
