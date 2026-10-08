@@ -1,6 +1,14 @@
 # TODO
 
-As of right now the primary focus should be database feature branch so we can continue to develop the moderation branch effectivly
-then we can make branches for things like levels which would give users image perms and what > [!NOTE]
+Below is a comprehensive list of what needs to be done.
 
->
+- [ ] Moderation Module
+  - [x] Warn Command
+  - [ ] Kick Command
+  - [ ] Ban Command
+  - [ ] Timeout Command
+  - [ ] Cases Command
+- [x] Welcome Module
+- [ ] Levels Module
+  - [ ] on_message event
+  - [ ] 2x xp for boosters
