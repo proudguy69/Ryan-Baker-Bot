@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from database import Infraction, User, db
 
 # any added extension gets its name here
-extensions = ["moderation"]
+extensions = ["moderation", "welcome"]
 logger = logging.getLogger("[Bot]")
 
 
