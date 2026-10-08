@@ -12,3 +12,8 @@ Below is a comprehensive list of what needs to be done.
 - [ ] Levels Module
   - [ ] on_message event
   - [ ] 2x xp for boosters
+  - [ ] 2x xp for staff
+  - [ ] Level Command
+  - [ ] Leaderboard Command
+    - [ ] Most Messages Leaderboard
+    - [ ] Highest Level Leaderboard
