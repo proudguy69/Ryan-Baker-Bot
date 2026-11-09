@@ -5,9 +5,9 @@ Below is a comprehensive list of what needs to be done.
 - [ ] Moderation Module
   - [x] Warn Command
   - [ ] Kick Command
-  - [ ] Ban Command
+  - [x] Ban Command
   - [ ] Timeout Command
-  - [ ] Cases Command
+  - [x] Cases Command
 - [x] Welcome Module
 - [ ] Levels Module
   - [ ] on_message event
